@@ -1,0 +1,20 @@
+service: comments-app
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  getComments:
+    handler: serverless.getComments
+    events:
+      - http:
+          path: comments
+          method: get
+          
+  addComment:
+    handler: serverless.addComment
+    events:
+      - http:
+          path: comments
+          method: post
